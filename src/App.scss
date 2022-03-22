@@ -1,0 +1,80 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 40px);
+
+  .pageTitle {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .dragFile {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='6%2c 20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    width: calc(100% - 40px);
+    min-width: 400px;
+    max-width: 760px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0px;
+    cursor: grab;
+  }
+
+  .grid {
+    display: grid;
+    width: 100%;
+    min-width: 400px;
+    max-width: 800px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    grid-gap: 1px;
+    background-color: white;
+
+    .cell {
+      height: 50px;
+      background-color: #282c34;
+
+      &.active {
+        background-color: #61dafb;
+      }
+    }
+  }
+
+  .h-flex {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    min-width: 400px;
+    align-items: center;
+    justify-content: space-between;
+
+    .stats {
+      display: flex;
+
+      p {
+        margin-right: 10px;
+      }
+    }
+
+    .inputs {
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .legend {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .footer {
+    margin-top: auto;
+
+    img {
+      width: 40px;
+    }
+  }
+}
