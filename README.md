@@ -1,6 +1,9 @@
 # Game of life
 
 Basic implementation of the game of life, starting from a .txt file.
+
+[example gif](public/example.gif)
+
 Clone the project, run `yarn` and then `yarn start`.
 
 Upload/edit the input.txt file to see the grid.
