@@ -28,16 +28,16 @@
     min-width: 400px;
     max-width: 800px;
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid var(--white);
     grid-gap: 1px;
-    background-color: white;
+    background-color: var(--white);
 
     .cell {
       height: 50px;
-      background-color: #282c34;
+      background-color: var(--background);
 
       &.active {
-        background-color: #61dafb;
+        background-color: var(--blue);
       }
     }
   }

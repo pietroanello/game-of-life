@@ -13,7 +13,17 @@ const useGame = (
   setGeneration: Dispatch<SetStateAction<number>>
 ) => {
   const { getAll } = useNeighbours(matrix)
+
   const [play, setPlay] = useState(false)
+
+  useEffect(() => {
+    let timeout
+    play
+      ? (timeout = setTimeout(() => {
+          nextMove()
+        }, TIMING))
+      : timeout && clearTimeout(timeout)
+  }, [play, matrix])
 
   const livesOrNot = (cell: number[]) => {
     // After taking out the neighbours position
@@ -27,17 +37,6 @@ const useGame = (
     if (!isAlive && neighboursAlive === 3) return 1
     return isAlive
   }
-
-  useEffect(() => {
-    let timeout
-    if (play) {
-      timeout = setTimeout(() => {
-        nextMove()
-      }, TIMING)
-    } else {
-      timeout && clearTimeout(timeout)
-    }
-  }, [play, matrix])
 
   const nextMove = () => {
     setGeneration(prev => prev + 1)

@@ -1,7 +1,9 @@
 # Game of life
 
 Basic implementation of the game of life, starting from a .txt file.
-Clone the project and run `yarn start`, then upload the input.txt file to see the grid.
+Clone the project, run `yarn` and then `yarn start`.
+
+Upload/edit the input.txt file to see the grid.
 
 ## Available Scripts
 
@@ -24,9 +26,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

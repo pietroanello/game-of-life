@@ -13,33 +13,12 @@ body {
 
 :root {
   --black: #1c1c15;
-  --shadow: rgb(38 84 49 / 65%);
   --background: #282c34;
   --white: #eeeeee;
-  --yellow: #fbab1d;
-  --grey: #3b7080;
-  --darkGrey: #040711;
-  --pink: #f06490;
-  --blue: #1087ae;
-  --purple: #795ba7;
+  --blue: #61dafb;
 }
 
 html {
   background-color: var(--background);
   color: var(--white);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-::-moz-selection {
-  /* Code for Firefox */
-  color: var(--yellow);
-  background: var(--black);
-}
-
-::selection {
-  color: var(--yellow);
-  background: var(--black);
 }

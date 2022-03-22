@@ -12,16 +12,19 @@ function App() {
   // Ref to the inital generation,
   const initialGen = useRef<number>()
 
-  const { loadFile, getCols, getRows, getStartMatrix } = useLoadFile()
+  const { loadFile, numCols, numRows, getStartMatrix } = useLoadFile()
   const { nextMove, playPauseGame, play } = useGame(matrix, setMatrix, setGeneration)
 
   const handleChange = async (files: File[]) => {
     const result = await loadFile(files)
-    result?.matrix && setMatrix(result.matrix)
-    if (result?.generation) {
-      setGeneration(result.generation)
-      initialGen.current = result.generation
+    if (result) {
+      result.matrix && setMatrix(result.matrix)
+      if (result.generation) {
+        setGeneration(result.generation)
+        initialGen.current = result.generation
+      }
     }
+    return result
   }
 
   const handleReset = () => {
@@ -38,7 +41,7 @@ function App() {
 
   const renderCells = matrix.flat().map((cell, index) => {
     const className = cell ? 'cell active' : 'cell'
-    return <div key={index} className={className} style={{ height: 800 / getCols() }} />
+    return <div key={index} className={className} style={{ height: 800 / numCols }} />
   })
 
   return (
@@ -51,16 +54,16 @@ function App() {
             <p>Generation: {generation}</p>
             <button onClick={loadNewFile}>Carica un nuovo file</button>
           </div>
-          <Grid rows={getRows()} cols={getCols()}>
+          <Grid rows={numRows} cols={numCols}>
             {renderCells}
           </Grid>
           <div className='h-flex'>
             <div className='stats'>
-              <p>Rows: {getRows()}</p>
-              <p>Cols: {getCols()}</p>
+              <p>Rows: {numRows}</p>
+              <p>Cols: {numCols}</p>
             </div>
             <div className='inputs'>
-              <button onClick={nextMove}>Next move</button>
+              {!play && <button onClick={nextMove}>Next move</button>}
               <button onClick={() => playPauseGame()}>{play ? 'Pause' : 'Play'}</button>
               <button onClick={handleReset}>Reset</button>
             </div>
@@ -75,7 +78,9 @@ function App() {
         </>
       )}
       <div className='footer'>
-        <img src='/github.svg' alt='github_logo' />
+        <a href='https://github.com/pietroanello/game-of-life' target='_blank'>
+          <img src='/github.svg' alt='github_logo' />
+        </a>
       </div>
     </>
   )
