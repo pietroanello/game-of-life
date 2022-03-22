@@ -36,7 +36,10 @@ function App() {
   }
 
   const loadNewFile = () => {
-    setMatrix([])
+    playPauseGame(true)
+    setTimeout(() => {
+      setMatrix([])
+    }, 200)
   }
 
   const renderCells = matrix.flat().map((cell, index) => {
